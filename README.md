@@ -1,6 +1,7 @@
 # Swiggy-Clone
 Swiggy.com Clone using React JS
 
+https://swiggy-clone-lalit.netlify.app/
 
 Tech Stack used to build this application : 
 Swiggy's Public API
@@ -11,3 +12,5 @@ Redux            --to manage the state
     
 Parcel               --JS bundler
 Tailwind CSS         -- CSS FrameWork
+
+
