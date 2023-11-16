@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItemToCart, removeItemFromCart } from "../utils/Store/CartSlice";
 
 const MenuItem = ({ info }) => {
+  const placeholderImage =
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/640px-Image_not_available.png";
   const cartItems = useSelector((sub) => sub.Cart.items);
 
   let updatedInfoFromCart;
@@ -59,14 +61,17 @@ const MenuItem = ({ info }) => {
         <div className="relative">
           <img
             onError={(e) => {
-              console.log("ERROR IN FETCHING IMAGE..." + e);
+              console.log("ERROR IN FETCHING IMAGE...");
+              console.log(e);
+              e.target.src = placeholderImage;
             }}
-            className="w-24 h-24 max-w-7xl rounded-2xl"
+            className="w-24 h-24 max-w-7xl rounded-2xl bg-cover"
             src={swiggy_img_url + info?.imageId}
+            alt="Image not available"
           />
           {updatedInfoFromCart === undefined ? (
             <button
-              className="border border-green-400 absolute bottom-1 w-auto px-2 rounded-lg ml-6 bg-white text-green-700 font-semibold"
+              className="hover:bg-green-400 hover:text-white border border-green-400 my-1 bottom-1 w-auto px-2 rounded-lg ml-6 bg-white text-green-700 font-semibold"
               onClick={handleAddItemToCart}
             >
               Add

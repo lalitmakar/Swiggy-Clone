@@ -63,7 +63,7 @@ const RestaurantPage = () => {
   }
 
   return (
-    <div className="w-1/2 mx-auto mt-10">
+    <div className="p-5 mt-10 w-full sm:w-1/2 sm:mx-auto ">
       <div>
         {/* <img src={swiggy_img_url + info?.cloudinaryImageId} /> */}
         <div className="flex justify-between">

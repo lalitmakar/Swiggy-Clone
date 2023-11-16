@@ -55,12 +55,12 @@ const HomePage = () => {
   }
 
   return (
-    <div className="mx-24 mt-5">
+    <div className="mt-5">
       {restList.length === 0 ? (
         <Shimmer />
       ) : (
         <div>
-          <div className="w-1/2 mx-auto m-10  border-2 rounded-full">
+          <div className="sm:w-1/2 sm:mx-auto m-10  border-2 rounded-full">
             <input
               className="w-full p-3  rounded-full"
               type="search"
@@ -71,9 +71,11 @@ const HomePage = () => {
           </div>
           {searchText.length > 0 ? (
             filteredRestList?.length === 0 ? (
-              "No Restaurant found with name : " + searchText
+              <div className="text-center">
+                No Restaurant found with name : {searchText}
+              </div>
             ) : (
-              <div className="flex flex-wrap justify-center">
+              <div className="sm:mx-24 flex flex-wrap justify-center">
                 {filteredRestList?.map((item) => (
                   <a
                     href={"/restaurant/" + item?.info?.id}
@@ -86,10 +88,10 @@ const HomePage = () => {
             )
           ) : (
             <div>
-              <div className="ml-24 text-2xl font-extrabold font-serif">
+              <div className="text-center text-2xl font-extrabold font-serif">
                 Top restaurant chains in Mumbai
               </div>
-              <div className="flex flex-wrap justify-center">
+              <div className="sm:mx-24 flex flex-wrap justify-center">
                 {restList.map((item) => (
                   <a
                     href={"/restaurant/" + item?.info?.id}
@@ -101,7 +103,6 @@ const HomePage = () => {
               </div>
             </div>
           )}
-          {}
         </div>
       )}
     </div>

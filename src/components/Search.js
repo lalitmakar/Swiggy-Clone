@@ -37,7 +37,7 @@ const Search = () => {
   }, []);
 
   return (
-    <div className="w-1/2 mx-auto">
+    <div className="sm:w-1/2 sm:mx-auto">
       <div className=" m-10  border-2 rounded-full">
         <input
           className="w-full p-3  rounded-full"

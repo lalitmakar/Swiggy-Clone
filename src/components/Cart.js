@@ -22,7 +22,7 @@ const Cart = () => {
   if (!isOnline) {
     return (
       <>
-        <div className="font-bold w-1/2 text-center mx-auto mt-40">
+        <div className="p-5 font-bold sm:w-1/2 text-center sm:mx-auto mt-40">
           Oops Looks like you lost Internet Connectivity
         </div>
         <Shimmer />
@@ -31,7 +31,7 @@ const Cart = () => {
   }
 
   return (
-    <div className="w-1/2 mx-auto mt-10 self-center">
+    <div className="mt-10 p-5 w-full sm:w-1/2 sm:mx-auto self-center">
       <div>
         {cart.length === 0 ? (
           <div className="w-full flex flex-col items-center justify-center">
@@ -71,7 +71,14 @@ const Cart = () => {
               </button>
               <button
                 className="m-5 p-2 bg-green-500 text-white"
-                onClick={() => {}}
+                onClick={() => {
+                  alert(
+                    "Total price to pay : " +
+                      total +
+                      "\nYour order is on the way !"
+                  );
+                  handleClearCart();
+                }}
               >
                 CheckOut
               </button>

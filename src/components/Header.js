@@ -6,7 +6,7 @@ const Header = () => {
   const cart = useSelector((sub) => sub.Cart.items);
 
   return (
-    <div className="shadow-lg flex items-center justify-around">
+    <div className="shadow-lg flex items-center justify-around overflow-hidden">
       <div className="flex items-center">
         <Link to="/">
           <img
@@ -15,18 +15,18 @@ const Header = () => {
             alt="swiggy-logo"
           />
         </Link>
-        <Link to="/">
+        <Link to="/" className="max-sm:hidden">
           <h2>Mumbai, Maharashtra, India</h2>
         </Link>
       </div>
-      <ul className="flex justify-around space-x-12">
+      <ul className="flex justify-around space-x-6 sm:space-x-12">
         <Link to="/search">
           <li className="hover:text-orange-400 flex space-x-1">
             <img
               className="w-5"
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Search_Icon.svg/768px-Search_Icon.svg.png"
             />
-            <span>Search</span>
+            <span className="max-lg:hidden">Search</span>
           </li>
         </Link>
         <Link to="/offers">
@@ -35,7 +35,7 @@ const Header = () => {
               className="w-5"
               src="https://cdn-icons-png.flaticon.com/512/2956/2956869.png"
             />
-            <span>Offers</span>
+            <span className="max-lg:hidden">Offers</span>
           </li>
         </Link>
         <Link to="/help">
@@ -44,7 +44,7 @@ const Header = () => {
               className="w-5"
               src="https://cdn.icon-icons.com/icons2/1993/PNG/512/circle_customer_help_info_information_service_support_icon_123208.png"
             />
-            <span>Help</span>
+            <span className="max-lg:hidden">Help</span>
           </li>
         </Link>
         <Link to="/signin">
@@ -53,16 +53,21 @@ const Header = () => {
               className="w-5"
               src="https://cdn-icons-png.flaticon.com/512/3106/3106773.png"
             />
-            <span>Sign In</span>
+            <span className="max-lg:hidden">Sign In</span>
           </li>
         </Link>
         <Link to="/cart">
-          <li className="hover:text-orange-400 flex space-x-1">
+          <li className="hover:text-orange-400 flex items-center space-x-1">
             <img
               className="w-5"
               src="https://www.iconpacks.net/icons/2/free-add-to-cart-icon-3046-thumb.png"
             />
-            <span>Cart - {cart.length}</span>
+            <span className="max-lg:hidden">Cart </span>
+            {cart.length === 0 ? (
+              ""
+            ) : (
+              <span className="font-light text-xs">({cart.length})</span>
+            )}
           </li>
         </Link>
       </ul>
