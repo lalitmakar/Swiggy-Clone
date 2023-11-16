@@ -23,9 +23,8 @@ const Cart = () => {
     return (
       <>
         <div className="p-5 font-bold sm:w-1/2 text-center sm:mx-auto mt-40">
-          Oops Looks like you lost Internet Connectivity
+          <span>&#9888;</span>Oops Looks like you lost Internet Connectivity
         </div>
-        <Shimmer />
       </>
     );
   }

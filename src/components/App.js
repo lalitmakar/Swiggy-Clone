@@ -3,7 +3,8 @@ import Header from "./Header";
 import useOnline from "../utils/hooks/useOnline";
 
 const App = () => {
-  const online = useOnline();
+  // registering custom hook to track user's internet connectivity
+  useOnline();
 
   return (
     <div>

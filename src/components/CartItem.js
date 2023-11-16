@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { addItemToCart, removeItemFromCart } from "../utils/Store/CartSlice";
 
 const CartItem = ({ info }) => {
+  const placeholderImage =
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/640px-Image_not_available.png";
   const dispatch = useDispatch();
   const handleRemoveItemFromCart = () => {
     dispatch(removeItemFromCart(info));
@@ -55,7 +57,7 @@ const CartItem = ({ info }) => {
         <div className="relative">
           <img
             onError={(e) => {
-              console.log("ERROR IN FETCHING IMAGE..." + e);
+              e.target.src = placeholderImage;
             }}
             className="w-24 h-24 max-w-7xl rounded-2xl"
             src={swiggy_img_url + info?.imageId}

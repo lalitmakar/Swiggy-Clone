@@ -61,8 +61,6 @@ const MenuItem = ({ info }) => {
         <div className="relative">
           <img
             onError={(e) => {
-              console.log("ERROR IN FETCHING IMAGE...");
-              console.log(e);
               e.target.src = placeholderImage;
             }}
             className="w-24 h-24 max-w-7xl rounded-2xl bg-cover"

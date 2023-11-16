@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import {
-  swiggy_prefetch_suggestions_URL,
-  swiggy_search_URL,
-} from "../utils/constants";
+import { swiggy_search_URL } from "../utils/constants";
 import SuggestionCard from "./SuggestionCard";
+import { useSelector } from "react-redux";
 
 const Search = () => {
+  const isOnline = useSelector((sub) => sub.Online.isOnline);
+
   const [searchText, setSearchText] = useState("");
   const [suggestions, setSuggestions] = useState([]);
 
@@ -23,18 +23,15 @@ const Search = () => {
     }
   };
 
-  const fetchSuggestions = async () => {
-    const response = await fetch(swiggy_prefetch_suggestions_URL);
-    const jsonData = await response.json();
-    console.log(jsonData);
-    // if (jsonData.statusCode === 0) {
-    //   setSuggestions(jsonData?.data?.suggestions);
-    // }
-  };
-
-  useEffect(() => {
-    fetchSuggestions();
-  }, []);
+  if (!isOnline) {
+    return (
+      <>
+        <div className="p-5 font-bold sm:w-1/2 text-center sm:mx-auto mt-40">
+          <span>&#9888;</span>Oops Looks like you lost Internet Connectivity
+        </div>
+      </>
+    );
+  }
 
   return (
     <div className="sm:w-1/2 sm:mx-auto">

@@ -49,7 +49,7 @@ const HomePage = () => {
   if (!isOnline) {
     return (
       <div className="font-bold w-1/2 text-center mx-auto mt-40">
-        Oops Looks like you lost Internet Connectivity
+        <span>&#9888;</span>Oops Looks like you lost Internet Connectivity
       </div>
     );
   }
